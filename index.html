@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bengkalis Immigration: MILES Process Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f5f7; --surface:#fff; --ink:#16212e; --muted:#5a6776; --line:#d5dbe2;
+  --navy:#1d3557; --red:#c2362f; --redbg:#fbe9e7; --green:#2f7d4f; --greenbg:#e5f3ea;
+  --amber:#8a5a00; --amberbg:#fff3d6;
+  --serif:"Newsreader",Georgia,serif; --sans:"Public Sans",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10161d; --surface:#171f29; --ink:#e7ecf1; --muted:#9aa7b5; --line:#2b3643;
+    --navy:#8fb4e3; --red:#ff8a80; --redbg:#3a1f1d; --green:#7fd1a0; --greenbg:#18301f;
+    --amber:#f0c36a; --amberbg:#35290e;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+a{color:var(--navy)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 32px}
+h1{font:700 clamp(2rem,5vw,3.4rem)/1.1 var(--serif);margin:0 0 16px;max-width:18ch;color:var(--navy)}
+.lede{font:500 1.25rem/1.5 var(--serif);max-width:60ch;margin:0 0 20px}
+.scope{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:24px}
+.scope div{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--navy);padding:14px 16px}
+.scope strong{display:block;margin-bottom:4px}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font:700 1.7rem/1.2 var(--serif);margin:0 0 8px;color:var(--navy)}
+.sub{color:var(--muted);max-width:68ch;margin:0 0 20px}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tabs button{font:600 .95rem var(--sans);padding:8px 16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;border-radius:4px}
+.tabs button[aria-selected="true"]{background:var(--navy);color:var(--bg);border-color:var(--navy)}
+.diagram{overflow-x:auto;border:1px solid var(--line);background:#101010}
+.diagram img{display:block;width:1800px;max-width:none;height:auto}
+.hint{font-size:.85rem;color:var(--muted);margin-top:8px}
+.key{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:.9rem}
+.sw{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+ul.find{padding-left:20px;max-width:70ch}
+ul.find li{margin-bottom:8px}
+.tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.93rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg);font-weight:600}
+tr:last-child td{border-bottom:0}
+.tag{display:inline-block;padding:1px 8px;border-radius:3px;font-size:.82rem;font-weight:600;white-space:nowrap}
+.obs{background:var(--redbg);color:var(--red)}
+.inf{background:var(--amberbg);color:var(--amber)}
+.ok{background:var(--greenbg);color:var(--green)}
+.id{font-weight:600;white-space:nowrap}
+details{background:var(--surface);border:1px solid var(--line);margin-bottom:8px;padding:12px 16px}
+summary{cursor:pointer;font-weight:600}
+details p,details ul{margin:10px 0 0;color:var(--muted)}
+.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;padding:0;list-style:none}
+.docs li{background:var(--surface);border:1px solid var(--line);padding:12px 14px}
+.docs span{display:block;color:var(--muted);font-size:.88rem}
+footer{padding:32px 0 56px;border-top:1px solid var(--line);color:var(--muted)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>Bengkalis Immigration: MILES Process Analysis</h1>
+  <p class="lede">A business analysis case study of the mobile passport service run by Kantor Imigrasi Kelas II TPI Bengkalis. It maps the process, finds the pain points and proposes digitization improvements.</p>
+  <p>Built from one public document: the 2025 SOP package of the Bengkalis immigration office.</p>
+  <div class="scope">
+    <div><strong>What this is</strong>A demonstration of process mapping, requirements writing and honest handling of evidence.</div>
+    <div><strong>What this isn't</strong>An evaluation of how the office actually performs. It uses the published SOPs only, with no observation or staff interviews.</div>
+  </div>
+</header>
+
+<main class="wrap">
+<section id="diagrams">
+  <h2>The process, before and after</h2>
+  <p class="sub">MILES (Mobile Immigration Services) sends officers to schools, cafes, malls and companies to take photos and interview passport applicants. The text SOP describes 4 to 5 steps. The slide shows 17. Both diagrams below redraw that slide into swimlanes.</p>
+  <div class="tabs" role="tablist" aria-label="Diagram version">
+    <button role="tab" id="tab-asis" aria-selected="true" aria-controls="panel">As-is</button>
+    <button role="tab" id="tab-tobe" aria-selected="false" aria-controls="panel">Proposed to-be</button>
+  </div>
+  <div class="diagram" id="panel" role="tabpanel" tabindex="0" aria-labelledby="tab-asis">
+    <img id="dimg" src="diagrams/as-is-process.png" alt="As-is swimlane diagram of the 17-step MILES process, with pain points P1 to P4 tagged in red.">
+  </div>
+  <p class="hint">Scroll sideways to see the whole diagram, or open the image in a new tab.</p>
+  <div class="key">
+    <span><i class="sw" style="background:#ff8a80"></i>Red tag: pain point (P1 to P5)</span>
+    <span><i class="sw" style="background:#4caf70"></i>Green: proposed change with requirement ID</span>
+    <span><i class="sw" style="background:#e0a63a"></i>Yellow: unresolved conflict or assumption</span>
+  </div>
+</section>
+
+<section id="findings">
+  <h2>Key findings</h2>
+  <ul class="find">
+    <li>MILES begins with a written request, and the SOP does not say whether it is paper.</li>
+    <li>The slide shows the team traveling before verification and the cekal (travel ban) check.</li>
+    <li>Nothing describes tracking after the passport goes to the post office.</li>
+    <li>The SOP document is inconsistent in several places.</li>
+  </ul>
+</section>
+
+<section id="pain-points">
+  <h2>Pain points</h2>
+  <p class="sub">There is no performance data, so every impact statement is a hypothesis. "Observed" means it is in the sources. "Inferred" means it is my reasoning.</p>
+  <div class="tw"><table>
+    <thead><tr><th>ID</th><th>Pain point</th><th>Evidence</th><th>Type</th></tr></thead>
+    <tbody>
+      <tr><td class="id">P1</td><td>The institution must send a written request. The SOP does not say whether it is paper or electronic.</td><td>p.6 step 1, p.9 step 1</td><td><span class="tag obs">Observed</span></td></tr>
+      <tr><td class="id">P2</td><td>The team travels (slide step 8) before verification and the cekal check (step 10). A trip may be wasted if applicants are incomplete. Frequency unknown.</td><td>p.6 steps 3-4, p.9</td><td><span class="tag obs">Observed order</span> <span class="tag inf">Assumed impact</span></td></tr>
+      <tr><td class="id">P3</td><td>No tracking is described after handover to the post office. Top Miles covers application status only.</td><td>p.3, p.6</td><td><span class="tag obs">Observed gap</span></td></tr>
+      <tr><td class="id">P4</td><td>No path for rejected documents in MILES. The Sipentri SOP does model "approved or postponed".</td><td>pp.6, 9, 15</td><td><span class="tag inf">Inferred</span></td></tr>
+      <tr><td class="id">P5</td><td>The SOP document contradicts itself: a duplicate step "3", mismatched time standards, a wrong table heading on p.6, a missing school time and more.</td><td>pp.4, 6, 14-16, 22-23</td><td><span class="tag obs">Observed</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="hint">Page numbers refer to SOP-INOVASI (PDF pages).</p>
+</section>
+
+<section id="requirements">
+  <h2>Requirements</h2>
+  <p class="sub">Only five, because the source is one SOP package and more would be invented. Payment stays after verification and the cekal check, which probably avoids refunds. Changes to national systems (M-Paspor, Simponi, SIMKIM) are out of scope.</p>
+  <div class="tw"><table>
+    <thead><tr><th>ID</th><th>The solution shall...</th><th>Priority</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td class="id">REQ-01</td><td>Let an institution submit a MILES request online and receive a confirmation, instead of a written request.</td><td><span class="tag ok">Must</span></td><td>P1</td></tr>
+      <tr><td class="id">REQ-02</td><td>Review registrations before the MILES date and deploy only when a minimum number of applicants have complete documents.</td><td><span class="tag ok">Must</span></td><td>P2 · <span class="tag inf">Assumption</span> officers can see registrations early</td></tr>
+      <tr><td class="id">REQ-03</td><td>Show one status page from application to dispatch, including the PT Pos tracking number.</td><td><span class="tag ok">Should</span></td><td>P3 · <span class="tag inf">Assumption</span> PT Pos can supply tracking data</td></tr>
+      <tr><td class="id">REQ-04</td><td>Tell an applicant why documents were rejected or incomplete and how to reschedule.</td><td><span class="tag ok">Could</span></td><td>P4 · <span class="tag inf">Inferred</span></td></tr>
+      <tr><td class="id">REQ-05</td><td>Apply document control to the SOP package: version number, one named owner and a text-against-slide consistency check before publishing.</td><td><span class="tag ok">Should</span></td><td>P5</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="stories">
+  <h2>User stories</h2>
+  <p class="sub">Each story traces to a requirement and a pain point, with acceptance criteria in Given/When/Then form.</p>
+  <details><summary>US-01: Online MILES request (REQ-01, P1)</summary><p>As an institution representative, I want to request a MILES visit online, so that I do not have to prepare and deliver a written request.</p></details>
+  <details><summary>US-02: Review before the visit (REQ-02, P2)</summary><p>As a Loket officer, I want to review applicants' registrations before the MILES date, so that the mobile team only travels when enough applicants are ready. The cekal check and final verification still happen on site.</p></details>
+  <details><summary>US-03: One status page (REQ-03, P3)</summary><p>As an applicant, I want one place to see my passport status through to delivery, so that I know when to expect it.</p></details>
+  <details><summary>US-04: Clear rejection reasons (REQ-04, P4)</summary><p>As an applicant, I want to know why my documents were rejected or incomplete, so that I can fix them without starting over.</p></details>
+  <details><summary>US-05: Consistent SOPs (REQ-05, P5)</summary><p>As the office head, I want every SOP checked for consistency before it is published, so that staff and the public are not given conflicting steps or times.</p></details>
+</section>
+
+<section id="verify">
+  <h2>How to check my work</h2>
+  <p>Every fact cites a page of SOP-INOVASI. Open the link in <code>docs/SOURCES.md</code>, then go to that page. Anything not from a source is labeled <span class="tag inf">Inferred</span> or <span class="tag inf">Assumption</span>.</p>
+  <ul class="docs">
+    <li><a href="docs/SOURCES.md">docs/SOURCES.md</a><span>Sources, handling, limitations</span></li>
+    <li><a href="docs/facts.md">docs/facts.md</a><span>What the SOPs say, with page numbers</span></li>
+    <li><a href="docs/pain-points.md">docs/pain-points.md</a><span>P1 to P5, with evidence type</span></li>
+    <li><a href="docs/BRD.md">docs/BRD.md</a><span>Business requirements</span></li>
+    <li><a href="docs/user-stories.md">docs/user-stories.md</a><span>User stories with acceptance criteria</span></li>
+    <li><a href="diagrams/">diagrams/</a><span>As-is and to-be process diagrams</span></li>
+  </ul>
+</section>
+
+<section id="limitations">
+  <h2>Limitations</h2>
+  <ul class="find">
+    <li>The SOPs describe the intended process, not observed practice. Nothing was confirmed with staff.</li>
+    <li>Some text extracted from the PDF is garbled (notably pp.6-8), and the slides are low resolution.</li>
+    <li>Where the SOP contradicts itself, both versions are recorded.</li>
+    <li>There are no volumes, times beyond the stated standards, costs beyond the fee, or error rates.</li>
+    <li>Applicants with low digital skills could be excluded, so a manual or assisted channel must remain.</li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Author: Yosef Setiawan, <a href="https://github.com/cloudBV">github.com/cloudBV</a></div>
+</footer>
+
+<script>
+(function(){
+  var img=document.getElementById('dimg'),panel=document.getElementById('panel');
+  var tabs={
+    'tab-asis':['diagrams/as-is-process.png','As-is swimlane diagram of the 17-step MILES process, with pain points P1 to P4 tagged in red.'],
+    'tab-tobe':['diagrams/to-be-process.png','Proposed to-be swimlane diagram: green boxes show REQ-01 to REQ-04 changes to the MILES process.']
+  };
+  Object.keys(tabs).forEach(function(id){
+    document.getElementById(id).addEventListener('click',function(){
+      Object.keys(tabs).forEach(function(o){document.getElementById(o).setAttribute('aria-selected',o===id)});
+      img.src=tabs[id][0];img.alt=tabs[id][1];panel.setAttribute('aria-labelledby',id);
+    });
+  });
+})();
+</script>
+</body>
+</html>
