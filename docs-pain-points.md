@@ -1,10 +1,20 @@
-# Pain Points: M-Paspor & MILES Program
+# Pain Points
 
-| ID | Pain point (What goes wrong) | Who is affected | Evidence |
+Evidence types: **Observed** (in the sources), **Inferred** (my reasoning, not in the sources).
+There is no performance data, so every impact statement is a hypothesis.
+
+| ID | Pain point | Evidence | Type |
 |---|---|---|---|
-| P1 | To use the MILES mobile service, a school/cafe must submit a physical written letter to the immigration office. This creates administrative delay and manual work. | Applicant & Office Staff | SOP-INOVASI p.6 |
-| P2 | The applicant must complete photo and interview *before* making the payment (Simponi). If the payment gateway fails, the office has already spent resources on the biometrics. | Office Staff | SOP-INOVASI p.9 |
-| P3 | Passport delivery is handed off to the Post Office (POS), but the app has no integrated real-time tracking. Applicants must use a separate WhatsApp link. | Applicant | SOP-INOVASI p.3 & p.9 |
-| P4 | Quota for mobile services is manually opened by the immigration office, meaning applicants cannot book the mobile service directly through the app. | Applicant | SOP-INOVASI p.6 |
-| P5 | If a document is rejected by the `Loket` officer during verification, the applicant must reschedule. The app does not show pre-verification status. | Applicant | **Assumption** (based on flow) |
-| P6 | The flow requires a `Survey Lokasi` (Location Survey) by the office before the mobile vehicle is deployed, which slows down service for remote schools/companies. | Office Staff | SOP-INOVASI p.9 |
+| P1 | MILES starts with a *written* request from the institution. The SOP does not say whether it is paper or electronic | SOP-INOVASI p.6 step 1, p.9 step 1 | Observed |
+| P2 | The team travels (slide step 8) before verification and the cekal check (step 10). The SOP does not say whether the office reviews registrations before deploying, so a trip may be wasted if applicants are incomplete or ineligible. Frequency unknown | SOP-INOVASI p.6 steps 3-4, p.9 | Observed order, assumed impact |
+| P3 | After handover to the post office (p.6) no tracking is described. Top Miles covers application status only. The SOP not mentioning tracking does not prove it does not exist | SOP-INOVASI p.3, p.6 | Observed gap |
+| P4 | No path for rejected documents in MILES. Sipentri does model "approved or postponed", so the idea exists elsewhere in the same document | SOP-INOVASI pp.6, 9, 15 | Inferred |
+| P5 | The SOP document contradicts itself: duplicate step "3" in Top Miles, Net Miles slide step 3 not matching its text, Sipentri 3 days vs 2 days + 15 min, Sipentri schedule delivery (website vs WhatsApp/email), a wrong table heading on p.6, and a missing school time | SOP-INOVASI pp.4, 6, 14-16, 22-23 | Observed |
+
+## Notes
+- P5 is a documentation finding. It has no requirement yet.
+- Payment (slide step 11) comes after verification and the cekal check (step 10).
+  That order is probably deliberate: applicants are not charged and then rejected.
+  The proposals keep it.
+- Pre-verification can only cover document completeness. The cekal check happens in the
+  immigration system and cannot be replaced locally.
